@@ -1,1 +1,0 @@
-# Ejemplo-2-CBV-para-CRUD-completo

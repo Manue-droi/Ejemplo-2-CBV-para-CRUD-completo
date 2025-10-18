@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario de Libro</title>
+</head>
+<body>
+    <h1>{{ view.object.pk|yesno:"Editar Libro,Nuevo Libro" }}</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+
+    <a href="{% url 'libro_list' %}">Cancelar</a>
+</body>
+</html>
+________________________________________
+libro_confirm_delete.html
+<!-- app_ejemplo02/templates/app_ejemplo02/libro_confirm_delete.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Confirmar eliminación</title>
+</head>
+<body>
+    <h1>Eliminar libro</h1>
+    <p>¿Estás seguro que deseas eliminar <strong>{{ object.titulo }}</strong>?</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Sí, eliminar</button>
+    </form>
+
+    <a href="{% url 'libro_list' %}">Cancelar</a>
+</body>
+</html>
